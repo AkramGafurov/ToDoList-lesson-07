@@ -1,5 +1,7 @@
-import {Button} from "./Button";
+// import {Button} from "./Button";
 import {ChangeEvent, KeyboardEvent, useState} from "react";
+import Button from '@mui/material/Button';
+import {TextField} from "@mui/material";
 
 
 type PropsType = {
@@ -32,14 +34,36 @@ export const AddItemForm = ({addItem}: PropsType) => {
 	}
 	return (
 		<div>
-			<input
-				className={error ? 'error' : ''}
+			{/*<input*/}
+			{/*	className={error ? 'error' : ''}*/}
+			{/*	value={title}*/}
+			{/*	onChange={changeItemHandler}*/}
+			{/*	onKeyUp={addItemOnKeyUpHandler}*/}
+			{/*/>*/}
+
+			<TextField
+				label="Enter a title"
 				value={title}
+				size={'small'}
+				error = {!!error}
+				helperText={error}
 				onChange={changeItemHandler}
 				onKeyUp={addItemOnKeyUpHandler}
 			/>
-			<Button title={'+'} onClick={addItemHandler}/>
-			{error && <div className={'error-message'}>{error}</div>}
+
+			{/*<TextField*/}
+			{/*	label="Enter a title"*/}
+			{/*	variant={'outlined'}*/}
+			{/*	className={error ? 'error' : ''}*/}
+			{/*	value={title}*/}
+			{/*	size={'small'}*/}
+			{/*	onChange={changeItemHandler}*/}
+			{/*	onKeyUp={addItemOnKeyUpHandler}*/}
+			{/*/>*/}
+
+			<Button variant="contained" onClick = {addItemHandler}>+</Button>
+			{/*<Button title={'+'} onClick={addItemHandler}/>*/}
+			{/*{error && <div className={'error-message'}>{error}</div>}*/}
 		</div>
 	)
 }
